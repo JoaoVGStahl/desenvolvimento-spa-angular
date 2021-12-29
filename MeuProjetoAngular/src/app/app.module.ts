@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt);
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegation/menu/menu.component';
@@ -13,6 +17,7 @@ import { rootRouterConfig } from './app.routes';
 import { DatabindingsComponent } from './demos/databindings/databindings.component';
 import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './produtos/produtos.service';
+import { ListaProdutosComponent } from './produtos/lista-produtos/lista-produtos.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +27,13 @@ import { ProdutoService } from './produtos/produtos.service';
     FooterComponent,
     SobreComponent,
     ContatoComponent,
-    DatabindingsComponent
+    DatabindingsComponent,
+    ListaProdutosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
   ],
   providers: [
